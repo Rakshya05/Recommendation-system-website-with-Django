@@ -1,0 +1,159 @@
+
+  {% extends "home.html" %}
+{% block starts %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+    }
+    .container {
+        width: 50%;
+        margin: 50px auto;
+        padding: 30px;
+        border-radius: 10px;
+    }
+    .box-shadow-skyblue {
+        box-shadow: 0px 0px 10px rgba(0, 191, 255, 0.5);
+    }
+    .box-shadow-orange {
+        box-shadow: 0px 0px 10px rgba(255, 165, 0, 0.5);
+    }
+    .box-shadow-lightyellow {
+        box-shadow: 0px 0px 10px rgba(255, 255, 102, 0.5);
+    }
+    h2 {
+        text-align: center;
+    }
+    input[type="text"],
+    select,
+    textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    input[type="file"] {
+        margin-top: 20px;
+    }
+    .btn {
+        width: 100%;
+        padding: 10px;
+        background-color: orange;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .btn:hover {
+        background-color: skyblue;
+    }
+    .container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container1 input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+</style>
+
+
+<div class="container box-shadow-skyblue">
+    <h2>Donate Product</h2>
+
+<form method="post" enctype="multipart/form-data" action="{% url 'update_product' id=product.id %}">
+    {% csrf_token %}
+
+    <label for="name">Name of Item:</label>
+    <input type="text" id="name" name="name" value="{{product.name}}" required>
+
+    <label for="category">Category:</label>
+    <select id="category" name="category" required>
+        <option value="" disabled selected>Select category</option>
+        <option value="clothing">Clothing</option>
+        <option value="household">Household</option>
+        <option value="stationary">Stationary</option>
+        <option value="toys">Toys</option>
+    </select>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" data-value="{{product.description}}" required></textarea>
+
+    <label for="keywords">Keywords:</label><br>
+    <input type="checkbox" id="key1" name="keywords" value="woman">
+    <label for="key1"> Makeup</label><br>
+    <input type="checkbox" id="key2" name="keywords" value="woman">
+    <label for="key2"> Female cloth</label><br>
+    <input type="checkbox" id="key3" name="keywords" value="rehab">
+    <label for="key3"> Male Cloth</label><br>
+       <input type="checkbox" id="key4" name="keywords" value="old">
+    <label for="key4"> Old Cloth</label><br>
+       <input type="checkbox" id="key5" name="keywords" value="all">
+    <label for="key5"> Furnitures</label><br>
+       <input type="checkbox" id="key6" name="keywords" value="child">
+    <label for="key6"> Toy</label><br>
+       <input type="checkbox" id="key7" name="keywords" value="child">
+    <label for="key7"> Book</label><br>
+       <input type="checkbox" id="key8" name="keywords" value="all">
+    <label for="key8"> Household</label><br>
+       <input type="checkbox" id="key9" name="keywords" value="all">
+    <label for="key9"> Grocery</label><br>
+
+    <label for="image" class="my-3">Upload Image:</label>
+    <input type="file" id="image" name="image" accept="image/*" value="{{product.image}}" required>
+
+    <button type="submit" class="btn my-3">Update Product</button>
+</form>
+
+</div>
+  {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

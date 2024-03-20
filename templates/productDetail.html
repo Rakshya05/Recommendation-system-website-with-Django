@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+{% block starts %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+    .star-rating {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.star-rating i {
+    margin: 0 5px;
+    transition: color 0.2s;
+}
+.star-rating{
+color:#adb5bd;
+}
+.star-rating i:hover,
+.star-rating i:active {
+    color: #A22025; /* Color when hovered or active */
+}
+</style>
+<section class=" container" >
+<div class="text-center mb-2 " style="font-weight:700; font-size:1.8rem"> {{ destination.name }}</div>
+<div class="m-auto d-flex justify-content-center">
+<img  src={{destination.image}} style="width:90%"/>
+</div>
+<div class="mx-5 my-4">
+  <p>  {{ destination.description|linebreaks|safe }}</p>
+</div>
+     <!--<form method="post" action="{% url 'rate_destination' destination.id %}" id="rating_form">
+    {% csrf_token %}
+
+    <div class="d-flex" id="star-rating">
+        {% for i in "12345" %}
+            <div class="star d-flex">
+                <a href="#" onclick="setRating({{ i }})" data-rating="{{ i }}"><i class="bi bi-star"></i></a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <input type="hidden" id="rating_input" name="rating" value="">
+</form>-->
+     <!--<form method="post" action="{% url 'rate_destination' destination.id %}">
+        {% csrf_token %}
+        <input type="number" name="rating">
+        <button type="submit">Rate</button>
+    </form>-->
+   <!-- {% if user.is_authenticated %}
+
+   <form method="post" action="{% url 'rate_destination' destination.id %}" id="ratingForm">
+    {% csrf_token %}
+    <div class="star-rating" data-rating="0">
+        <i class="fa-solid fa-star" data-value="1"></i>
+        <i class="fa-solid fa-star" data-value="2"></i>
+        <i class="fa-solid fa-star" data-value="3"></i>
+        <i class="fa-solid fa-star" data-value="4"></i>
+        <i class="fa-solid fa-star" data-value="5"></i>
+    </div>
+    <input type="hidden" name="rating" id="ratingInput" value="0">
+</form>
+    {% endif %}-->
+
+<div class="justify-content-between">
+{% if user.is_authenticated %}
+                        {% if not already_rated %}
+     <form method="post" action="{% url 'rate_destination' destination.id %}" id="ratingForm">
+    {% csrf_token %}
+    <div class="star-rating" data-rating="0">
+        <i class="fa-solid fa-star" data-value="1"></i>
+        <i class="fa-solid fa-star" data-value="2"></i>
+        <i class="fa-solid fa-star" data-value="3"></i>
+        <i class="fa-solid fa-star" data-value="4"></i>
+        <i class="fa-solid fa-star" data-value="5"></i>
+    </div>
+    <input type="hidden" name="rating" id="ratingInput" value="0">
+</form>
+                           <!-- <a href="{% url 'rate_destination' destination.id %}" class="btn btn-primary">Rate</a>-->
+                        {% else %}
+                            <button class="btn btn-primary" disabled>Already Rated</button>
+
+                        {% endif %}
+                        {% endif %}
+
+
+</div>
+    <div class="d-flex justify-content-between">
+                    {% if user.is_superuser %}
+                        <a href="/update-destination/{{ destination.id }}" class="btn btn-primary">Edit</a>
+                        <a href="/delete-destination/{{ destination.id }}" class="btn btn-danger">Delete</a>
+                    {% endif %}
+
+
+    </div>
+       <!-- <div>
+                       <form method="post" action="{% url 'rate_destination' destination.id %}">
+    {% csrf_token %}
+
+    <ul class="d-flex" id="star-rating">
+        {% for i in "12345" %}
+            <ol class="star" onclick="setRating({{ forloop.counter0 }})">
+                <a href="" data-rating="{{ forloop.counter0 }}"><i class="bi bi-star-fill"></i></a>
+            </ol>
+        {% endfor %}
+    </ul>
+
+    <input type="hidden" id="rating_input" name="rating" value="">
+    <button type="submit">Submit Rating</button>
+</form>
+
+</div>-->
+
+<h2 class="my-3">Suggestion:</h2>
+
+      <div class="row   " style="width:100%">
+        {% for destination in similar_destinations %}
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2 ">
+            <img src="{{ destination.image }}" alt="Card image cap" style="height:13rem; width:100%">
+            <div class=" px-2 py-3 " style="background-color:#D9D9D9; ">
+    <div class="des-name">
+        <a href="{% url 'get_details' destination.id %}" style="color:black;" >{{destination.name}}</a>
+    </div>
+<div class="d-flex justify-content-end py-1">
+    <div class="rating-stars " >
+    {% for i in "12345" %}
+        {% with i_int=i|add:0 %}
+            {% with half_star_limit=i_int|add:-0.5 %}
+                {% if i_int <= destination.average_rating %}
+                    <i class="bi bi-star-fill"></i>
+
+                {% elif half_star_limit <= destination.average_rating %}
+                    <i class="bi bi-star-half"></i>
+                {% else %}
+                    <i class="bi bi-star"></i>
+                {% endif %}
+            {% endwith %}
+        {% endwith %}
+    {% endfor %}
+    </div>
+</div>
+            </div>
+        </div>
+        {% endfor %}
+
+
+
+
+
+
+
+<!--
+{% for destination in similar_destinations %}
+{{destinations.name}}
+        <div class="card">
+            <img class="card-img-top" src="{{ destination.image }}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{ destination.name }}</h5>
+                <p class="card-text">{{ destination.description }}</p>
+                <p>Count of Ratings: {{ destination.count_ratings }}</p>
+                <p>Average Rating: {{ destination.average_rating }}</p>
+            </div>
+        </div>
+{% endfor %}-->
+</div>
+
+</section>
+

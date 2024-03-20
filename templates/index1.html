@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <title>Donate for change</title>
+
+</head>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+
+    }
+
+    html,
+    body {
+      font-family: 'Lato', sans-serif;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'PublicoHeadline-Web-Light';
+    }
+
+    /*banner css */
+    .ban_sec {
+      width: 100%;
+    }
+
+    .ban_img {
+      width: 100%;
+      position: relative;
+    }
+
+    .ban_img img {
+      width: 100%;
+    }
+
+    .ban_text {
+      position: absolute;
+      top: 50%;
+      left: 6%;
+      -ms-transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+
+    .ban_text strong {
+      font: 800 62.22px/70px "Montserrat", sans-serif;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    .ban_text strong span {
+      font: 400 44.44px/52px "Montserrat", sans-serif;
+      letter-spacing: 3px;
+    }
+
+    .ban_text p {
+      font: 400 25px/30px "Montserrat", sans-serif;
+      color: #fff;
+      margin: 7px 0 25px;
+    }
+
+    .ban_text a {
+      display: inline-block;
+      font: 800 19.39px/24px "Montserrat", sans-serif;
+      background: #282828;
+      border-radius: 26px;
+      color: #fff;
+      padding: 12px 28px;
+      -moz-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      -webkit-transition: all 0.3s ease-in-out;
+      -ms-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      text-decoration: none;
+    }
+
+    .ban_text a:hover {
+      background: #50af47;
+    }
+
+    /*stylecss*/
+
+    .sec-pad {
+      padding-top: 70px;
+      padding-bottom: 70px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .main-title {
+      margin-bottom: 50px;
+      text-transform: capitalize;
+      font-size: 30px;
+    }
+
+    .pre-title {
+      font-size: 1.25rem;
+      text-transform: uppercase;
+      color: orange;
+    }
+
+    .text-primary {
+      color: orange !important;
+    }
+
+    button {
+      border-radius: 0 !important;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      font-weight: 900;
+    }
+
+    .btn-outline-primary:hover::before {
+      opacity: -0.5;
+      inset: 0px;
+      z-index: 10;
+    }
+
+    .btn-outline-primary:hover::after {
+      color: white;
+    }
+
+    .btn-outline-primary {
+      padding: 10px 30px;
+      border: none;
+      outline: none;
+      position: relative;
+      z-index: 1;
+      border-radius: 26px;
+      border: 1px solid orange;
+      ;
+      /* background   : #053033; */
+      cursor: pointer;
+      border-width: 2px;
+      color: orange;
+      ;
+    }
+
+
+    .btn-primary {
+      background-color: orange;
+      ;
+      color: #fff;
+      border: none;
+      box-shadow: 0 2px 4px rgba(199, 195, 195, 0.2);
+      border-radius: 26px;
+      padding: 10px 30px;
+      text-align: center;
+      transition: .3s;
+      background-size: 200% auto;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background-position: right center;
+      color: #fff;
+    }
+
+ 
+    /*product-section*/
+
+    .product-main .product-content {
+      width: 85%;
+    }
+
+    .product-main .product-card {
+      height: 270px;
+      margin-bottom: 20px;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .product-main .third-product {
+      margin-top: 20px;
+    }
+
+    .product-main .product-card .section-title {
+      margin-bottom: 10px;
+    }
+
+    .product-main .product-item {
+      text-align: center;
+    }
+
+    .product-main .product-icon-box {
+      margin-bottom: 20px;
+    }
+
+    .product-main .product-icon-box img {
+      width: 60px;
+    }
+
+    .product-main .product-button button {
+      display: block;
+      margin-top: 30px;
+    }
+
+    .product-main .slick-slide img {
+      display: initial;
+    }
+
+    /*product display css starts here */
+    #products-page {
+      background-color: #f8f8f8;
+    }
+
+    .product-main .bordered-title::after {
+      background-color: #aa3b0b;
+    }
+
+    .sub-product-main .card {
+      border-radius: 10px;
+    }
+
+    .product-main-image img {
+      display: block;
+      margin: auto;
+
+    }
+
+    .product-content {
+      /* background-color: #FDFEFF;
+    border-radius: 20px;
+    */
+      padding: 50px;
+      margin-bottom: 20px;
+    }
+
+    .product-content p {
+      line-height: 1.7;
+      text-align: justify;
+    }
+
+    .sub-product-main .card-title {
+      text-align: center;
+    }
+
+    .product-card .card-body {
+      padding: 0;
+    }
+
+    .product-card {
+      transition: all .3s;
+      box-shadow: 1px 2px 7.72px 1.28px rgb(0 0 0 / 4%);
+      /* height: 250px; */
+      /* box-shadow: 0px 0px 7.72px 1.28px rgba(0, 0, 0, 0.13); */
+      margin-bottom: 40px;
+
+    }
+
+    .sub-product-main .card {
+      border: none;
+      border-top: 4px solid #aa3b0b;
+
+    }
+
+    .product-card:hover {
+      transform: scale3d(1.02, 1.02, 1.02);
+      border: 1px solid #f8f8;
+    }
+
+    .sub-product-main .product-card .card-body {
+      position: relative;
+    }
+
+    .product-btn {
+      opacity: 0;
+      position: absolute;
+      bottom: 40px;
+      width: 100%;
+      text-align: center;
+      transition: transform .3s;
+    }
+
+    .product-card:hover .product-btn {
+      transform: translateY(-50%);
+      z-index: 9999;
+      opacity: 1;
+    }
+
+    .product-card .btn-primary {
+      box-shadow: none;
+    }
+
+    .product-image {
+      height: 231px;
+      overflow: hidden;
+      margin: auto;
+      width: 100%;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .sub-product-main .product-image img {
+      width: 100%;
+      height: auto;
+      margin: auto;
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+
+    }
+
+    .product-card .card-title {
+      font-size: 20px;
+      padding: 20px;
+      margin-bottom: 0;
+    }
+
+    /*upper flip card*/
+
+
+
+    .logo-wrap {
+      width: 150px;
+      height: auto;
+    }
+
+    .our-card {
+      height: 250px;
+      overflow: hidden;
+      text-align: center;
+      border: 0;
+    }
+
+    .flip-card {
+      position: relative;
+      height: 250px;
+      margin-bottom: 20px;
+      transition: all 0.3s ease-in-out;
+
+    }
+
+    .card-front {
+      background-color: #fff;
+    }
+
+    .card-front,
+    .card-back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      transition: all 0.3s ease-in-out;
+
+    }
+
+    .card-back {
+      /* background-color: rgb(125, 235, 125); */
+      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+      background-color: rgb(103, 194, 233);
+      opacity: 0;
+      border-radius: 6px;
+      color: #fff;
+    }
+
+    .flip-card:hover .card-back {
+      opacity: 1;
+    }
+
+    .our-card li {
+      list-style: none;
+    }
+
+    .our-card .card-title {
+      text-align: center;
+    }
+
+
+
+    .our-card .card-icon img {
+      width: 100px;
+    }
+
+
+    .expertise-wrapper .our-card {
+      background-color: transparent;
+
+    }
+
+    .card-back .card-body {
+      border: 1px solid #fff;
+      margin: 30px;
+      display: flex;
+      align-items: center;
+    }
+
+    .card-back .card-title {
+      margin-bottom: 20px;
+    }
+
+    .network-wrapper {
+
+      position: relative;
+      color: #fff;
+      z-index: 10;
+    }
+
+    .netwrok-wapper-inner {
+      /* background-color: #67c2e9; */
+      background: url(/media/images/map-bg1.jpg);
+      min-height: 300px;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 300px;
+      display: flex;
+      align-items: center;
+    }
+
+    .network-wrapper img {
+      position: absolute;
+      top: -30px;
+      left: -5px;
+      width: 800px;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .network-inner {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .btn-theme {
+      background: rgb(103, 194, 233);
+      border: none;
+    }
+
+    .btn-theme:hover {
+      background-color: #038ed2;
+    }
+
+    .dristibution-flip-card {
+      position: relative;
+      height: 250px;
+      margin-bottom: 15px;
+      transition: all 0.3s ease-in-out;
+      perspective: 1000px;
+      overflow: hidden;
+
+    }
+
+    .dristibution-flip-card .flip-card-front {
+      background-color: #fff;
+      color: black;
+    }
+
+    .dristibution-flip-card .flip-card-front,
+    .dristibution-flip-card .flip-card-back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      transition: all 0.3s ease-in-out;
+      overflow: hidden;
+
+    }
+
+    .dristibution-flip-card .flip-card-back {
+      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+      background-color: rgb(103, 194, 233);
+      opacity: 0;
+      border-radius: 6px;
+      color: #fff;
+      height: 250px;
+    }
+
+    .flip-card:hover .flip-card-back {
+      opacity: 1;
+    }
+
+    .distribution-wrapper {
+      background: url(/media/images/sales-bg2.jpg);
+      background-repeat: no-repeat;
+      background-size: 40% 100%;
+      background-position: right top;
+    }
+
+    .distribution-wrapper .sales-content {
+      color: #fff;
+      padding: 30px;
+    }
+
+    .dristibution-flip-card .flip-card-back::after {
+      content: "";
+      background: #31aadfc9;
+      height: 100%;
+      left: 0;
+      padding: 20px;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: -1;
+
+    }
+
+    .dristibution-flip-card .flip-card-back-inner {
+      padding: 15px;
+
+    }
+
+    .dristibution-flip-card:hover .flip-card-back {
+      opacity: 1;
+    }
+
+    .flip-card-back-inner button,
+    .flip-card-back-inner a {
+      display: block;
+      margin: auto;
+    }
+
+
+
+    @keyframes float {
+      0% {
+        transform: translatey(0px);
+      }
+
+      50% {
+        transform: translatey(-20px);
+      }
+
+      100% {
+        transform: translatey(0px);
+      }
+    }
+
+
+
+  /*navbar*/
+
+   .main-navbar {
+      height: 80px;
+    }
+
+    .sticky {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 9999;
+      background-color: #ffffff;
+      box-shadow: 0 2px 5px 2px rgb(38 34 34 / 14%);
+    }
+
+    .main-navbar a.nav-link {
+      padding: 15px !important;
+    }
+
+    .main-navbar .dropdown-menu {
+      padding: 0;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, .1);
+      border: 0;
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+    }
+
+    .navbar-brand img {
+      height: 60px;
+    }
+
+    .dropdown-item:hover {
+      background-color: orange;
+      color: #fff;
+    }
+
+    .main-navbar .nav-link {
+      color: #555;
+    }
+
+    .main-navbar .nav-link:hover {
+      color: orange !important;
+    }
+
+    .main-navbar .navbar-nav .nav-link.active,
+    .main-navbar .navbar-nav .show>.nav-link {
+      color: orange;
+    }
+
+    .main-navbar .navbar-nav .nav-item .nav-link {
+      position: relative;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+
+
+        /*footer*/
+    .mega-footer {
+      /* background-color: skyblue; */
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    .footer-info h5,
+    .footer-social h5 {
+      padding-bottom: 10px;
+      color: black;
+    }
+
+    .footer-info p {
+      color: black;
+    }
+
+    .footer-social a {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      color: #fff;
+      text-align: center;
+      padding-top: 8px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      background: linear-gradient(to bottom right, #5d250a, #8f250c, #aa3b0b, #ca5c25, #df8140);
+    }
+
+    .footer-social a:hover {
+      transform: scale3d(1.09, 1.09, 1.09);
+    }
+
+    .footer-social a:hover i {
+      transform: scale3d(1.5, 1.5, 1.5);
+    }
+
+    footer {
+      background: rgb(16, 38, 46);
+      color: #fff;
+      padding: 20px 30px 10px 30px;
+    }
+
+    footer .footer-menu ul {
+      padding-left: 0;
+    }
+
+    footer .footer-menu ul li {
+      display: inline-block;
+    }
+
+    footer .footer-menu ul li a {
+      padding: 10px;
+      color: #fff;
+      transition: transform 0.1s;
+    }
+
+    footer ul li a:hover {
+      color: #df8140;
+    }
+
+    .footer-info p {
+      word-wrap: break-word;
+    }
+
+    .footer-logo {
+      width: 250px;
+    }
+
+    .footer-logo img {
+      width: 100%;
+    }
+    .product-card img{
+      height: 230px;
+    width: auto;
+    }
+  </style>
+<body>
+    <nav class="navbar main-navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand custom-logo" href="#"><img src="/media/images/logo-no-background.png" alt="logo"
+              class="img-fluid" /></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse custom-nav-collapse" id="navbarSupportedContent">
+            <form class="d-flex ms-auto search-form" role="search">
+
+              <input class="form-control" name="search" type="text" placeholder="Search" aria-label="Search">
+              <button class="btn" type="submit"> <i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{% url 'about-us' %}">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{% url 'contact-us' %}">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{% url 'organization-form' %}">Organization</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{% url 'create-product' %}">Donor</a>
+              </li>
+
+              <li class="nav-item">
+                {% if user.is_authenticated %}
+             Hello!
+            {{user.username}}
+
+        <!-- Show logout button if the user is logged in -->
+        <a href="{% url 'logout' %}" class="btn nav-link  my-sm-0"><i class="fa fa-sign-out" aria-hidden="true"></i></i></a>
+    {% else %}
+        <!-- Show login button if the user is not logged in -->
+        <a href="{% url 'login' %}" class="btn nav-link my-2 my-sm-0"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+    {% endif %}
+
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  <section class="ban_sec">
+    <div class="container-fluid">
+      <div class="ban_img">
+        <img src="https://i.ibb.co/NVjsGWG/banner.jpg" alt="banner">
+        <div class="ban_text">
+          <strong>
+            <span>Donating to Needy</span><br> from your side
+          </strong>
+          <br>
+          <br>
+          <br>
+          <p>Your old clothes can bring out a smile in a child face !</p>
+          <!-- <a href="#">Lend a hand</a> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class=" expertise-wrapper sec-pad">
+    <div class="container">
+      <h3 class="main-title text-center">Donate With Ease: Empower Generosity </h3>
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="expertise-inner flip-card">
+            <div class="card-front">
+              <div class="card our-card">
+                <div class="card-body">
+                  <div class="card-icon">
+                    <img src="/media/images/experties1.webp" class="img-fluid">
+                  </div>
+                  <h6 class="card-title">Clothes</h6>
+                  <ul>
+                    <li>You can donate clothes,blankets,and other fabrics</li>
+                    <li>You can donate new ones too</li>
+                    <li>Donate with ease</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="card-back">
+              <div class="card our-card">
+                <div class="card-body">
+                  <div class="back-inner">
+                    <h6 class="card-title">Donate with ease</h6>
+                    <p class="card-text">Donate by registering from our platform with ease.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="expertise-inner flip-card">
+            <div class="card-front">
+              <div class="card our-card">
+                <div class="card-body">
+                  <div class="card-icon">
+                    <img src="/media/images/experties1.webp" class="img-fluid">
+                  </div>
+                  <h6 class="card-title">Furniture</h6>
+                  <ul>
+                    <li>You can donate unused chairs,bed and other funitures.</li>
+                    <li>You can donate new ones too</li>
+                    <li>Donate with ease</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="card-back">
+              <div class="card our-card">
+                <div class="card-body">
+                  <div class="back-inner">
+                    <h6 class="card-title">Donate with ease</h6>
+                    <p class="card-text">Donate by registering from our platform with ease.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="expertise-inner flip-card">
+            <div class="card-front">
+              <div class="card our-card">
+                <div class="card-body">
+                  <div class="card-icon">
+                    <img src="/media/images/experties1.webp" class="img-fluid">
+                  </div>
+                  <h6 class="card-title">Stationary</h6>
+                  <ul>
+                    <li>You can donate book,pencil,pen,copy and others accessories.</li>
+                    <li>You can donate new ones too</li>
+                    <li>Donate with ease</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="card-back">
+              <div class="card our-card">
+                <div class="card-body">
+                  <div class="back-inner">
+                    <h6 class="card-title">Donate with ease</h6>
+                    <p class="card-text">Donate by registering from our platform with ease.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class=" offset-lg-2 col-lg-4 col-md-6">
+          <div class="expertise-inner flip-card">
+            <div class="card-front">
+              <div class="card our-card">
+                <div class="card-body">
+                  <div class="card-icon">
+                    <img src="/media/images/experties1.webp" class="img-fluid">
+                  </div>
+                  <h6 class="card-title">Household</h6>
+                  <ul>
+                    <li>You can donate household items like kitchen accessories and cleaning items.</li>
+                    <li>You can donate new ones too</li>
+                    <li>Donate with ease</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="card-back">
+              <div class="card our-card">
+                <div class="card-body">
+                  <div class="back-inner">
+                    <h6 class="card-title">Donate with ease</h6>
+                    <p class="card-text">Donate by registering from our platform with ease.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="offset-md-3 offset-lg-0 col-lg-4 col-md-6 expertise-offset">
+          <div class="expertise-inner flip-card ">
+            <div class="card-front">
+              <div class="card our-card">
+                <div class="card-body">
+                  <div class="card-icon">
+                    <img src="/media/images/experties1.webp" class="img-fluid">
+                  </div>
+                  <h6 class="card-title">Toys/Accessories</h6>
+                  <ul>
+                    <li>You can donate old toys to others.</li>
+                    <li>You can donate new ones too</li>
+                    <li>Donate with ease</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="card-back">
+              <div class="card our-card">
+                <div class="card-body">
+                  <div class="back-inner">
+                    <h6 class="card-title">Donate with ease</h6>
+                    <p class="card-text">Donate by registering from our platform with ease.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="network-wrapper sec-pad">
+    <div class="netwrok-wapper-inner">
+      <div class="container-fluid">
+        <div class="row align-center">
+          <div class="col-md-7">
+            <img src="/media/images/nepal1.png" class="img-fluid">
+          </div>
+          <div class="col-md-5">
+            <h4 class="network-inner ">
+              Donors from all over nepal can donate any items that they feel like donating through our site.
+
+            </h4>
+            <div class="row">
+              <div class="col-4">
+                <div class="milestone-inner">
+                  <div class="milestone-box">
+                    <h2>40 +</h2>
+                    <p>Donors</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="milestone-inner">
+                  <div class="milestone-box">
+                    <h2>100+</h2>
+                    <p>Organizations</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="milestone-inner">
+
+                  <div class="milestone-box">
+                    <h2>5+</h2>
+                    <p>Businesses</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sub-product-main sec-pad">
+    <div class="sub-product-headings">
+      <h6 class="pre-title text-center">Donation Items</h6>
+      <h2 class="main-title text-center">Unlimited items donated by Donors</h2>
+    </div>
+    <div class="container">
+      <div class="row">
+
+{% for product in products %}
+<div class="col-lg-3 col-md-6">
+  <a href="{% if user.is_authenticated %}{% url 'get-product-details' product.id  %}{% else %}{% url 'get-product-details' product.id %}{% endif %}">
+    <div class="card product-card">
+      <img src="media/{{ product.image }}" alt="" class="img-fluid">
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+      </div>
+    </div>
+  </a>
+</div>
+{% endfor %}
+
+
+
+      </div>
+    </div>
+  </section>
+
+
+  <section class="view-more sec-pad">
+    <div class="sub-product-headings">
+      <h6 class="pre-title text-center">More To Explore</h6>
+      <h2 class="main-title text-center">View More items donated by Donors</h2>
+    </div>
+    <div class="container">
+      <div class="row">
+<div class="col-lg-3 col-md-6" >
+        <div class="card product-card">
+            <!-- Product Image -->
+            <div class="product-image">
+                <img src="/media/images/old cloth.jpg" alt="" class="img-fluid">
+                <!-- Form -->
+
+            </div>
+            <div class="card-body">
+                              <form class="d-flex ms-auto search-form" role="search" style="width:100%; display:none;">
+                    <input class="form-control d-none" name="search" value="cloth" type="text" aria-label="Search">
+                    <button class="btn" type="submit">Unused Cloth</button>
+
+                  </form>
+            </div>
+        </div>
+    </div>
+        <div class="col-lg-3 col-md-6" data-search="toy">
+          <div class="card product-card">
+            <div class="product-image">
+              <img src="/media/images/toys.jpg" alt="" class="img-fluid">
+
+            </form>
+            </div>
+            <div class="card-body">
+<form class="d-flex ms-auto search-form" role="search" style="width:100%; display:none;">
+                    <input class="form-control d-none" name="search" value="toy" type="text" aria-label="Search">
+                    <button class="btn" type="submit">Toy</button>
+
+                  </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-search="stationary">
+          <div class="card product-card">
+            <div class="product-image">
+              <img src="/media/images/books.jpeg" alt="" class="img-fluid">
+
+            </div>
+            <div class="card-body">
+<form class="d-flex ms-auto search-form" role="search" style="width:100%; display:none;">
+                    <input class="form-control d-none" name="search" value="stationary" type="text" aria-label="Search">
+                    <button class="btn" type="submit">Stationary</button>
+
+                  </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-search="Household">
+          <div class="card product-card">
+            <div class="product-image">
+              <img src="/media/images/food.jpg" alt="" class="img-fluid">
+
+            </div>
+            <div class="card-body">
+<form class="d-flex ms-auto search-form" role="search" style="width:100%; display:none;">
+                    <input class="form-control d-none" name="search" value="household" type="text" aria-label="Search">
+                    <button class="btn" type="submit">Household</button>
+
+                  </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+
+  <section class="distribution-wrapper sec-pad">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col-md-8 order-2 order-md-1">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="dristibution-flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <div class="card">
+                      <div class="distribution-img card-img-top">
+                        <img src="/media/images/blog-2.jpg" class="img-fluid">
+                      </div>
+                      <div class="card-body">
+
+                        <h6 class="card-title ">Business to Organizations</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="dristibution-flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <div class="distribution-img">
+                      <img src="media/images/blog-3.jpg" class="img-fluid">
+                    </div>
+                    <h6 class="card-title ">Individual Donor to Organization</h6>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="dristibution-flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <div class="distribution-img">
+                      <img src="/media/images/blog-4.jpg" class="img-fluid">
+                    </div>
+                    <h6 class="card-title ">Donor-Committee to Organizations</h6>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 order-1 order-md-2">
+          <div class="sales-content">
+            <h3 class="main-title">
+              Our Distribution Channel
+            </h3>
+            <p>Our platform empowers individuals, groups, and businesses to seamlessly donate or distribute physical
+              items.
+            </p>
+            <p> Enjoy the freedom and convenience to contribute from any place, at any time, without constraints.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </div>
+
+<section class="footers-wrapper">
+        <div class="mega-footer sec-pad">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="footer-logo">
+                  <img src="/media/images/logo.png" alt="">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="footer-info">
+                  <h5>Address</h5>
+                  <p>Patandhoka Gate<br> Near by area, Lalitpur,Nepal <br>
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="footer-info">
+                  <h5>Phone</h5>
+                  <p>Office : +977 231 6548<br> Support : +977 654 3652</p>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="footer-info">
+                  <h5>Email</h5>
+                  <p>Office: office@domainname.com<br> Support : support@domain.com</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+</body>
+ <script>
+     // Attach a click event handler to the 'colClick' div
+  $('#colClick .col').on('click', function() {
+    // Trigger the form submission of the clicked column
+    $(this).find('form').submit();
+  });
+
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</html>

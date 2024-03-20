@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block starts %}
+<div class="container">
+    <input type="checkbox" id="check">
+    <div class="login form">
+        <header>Login</header>
+        <form action="#">
+            <input type="password" id="loginPasswordInput" placeholder="Enter your password">
+            <input type="button" class="button" value="Login">
+        </form>
+    </div>
+    <div class="registration form">
+        <header>Signup</header>
+        <form action="#">
+            <input type="password" id="signupPasswordInput" placeholder="Create a password">
+            <input type="button" class="button" value="Signup">
+        </form>
+    </div>
+</div>
+
+<script>
+    document.getElementById('check').addEventListener('change', function () {
+        var loginPasswordInput = document.getElementById('loginPasswordInput');
+        var signupPasswordInput = document.getElementById('signupPasswordInput');
+
+        if (this.checked) {
+            loginPasswordInput.type = 'text';
+            signupPasswordInput.type = 'text';
+        } else {
+            loginPasswordInput.type = 'password';
+            signupPasswordInput.type = 'password';
+        }
+    });
+</script>
+
+{% endblock %}

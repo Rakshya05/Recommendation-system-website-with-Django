@@ -1,0 +1,41 @@
+{% extends "home.html" %}
+{% block starts %}
+<div class="container mt-5">
+    <form class="col-6 mx-auto card p-2 shadow-lg" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+            <h2>Adding Product</h2>
+
+  <div class="mb-3 ">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" name="name" class="form-control" id="name">
+  </div>
+        <div class="mb-3">
+    <label for="category" class="form-label">Category</label>
+            <select name="category" class="form-control" id="category">
+                <option value="clothing">Clothing</option>
+                <option value="food">Food</option>
+                <option value="toys">Toys</option>
+                <option value="stationary">Stationary</option>
+            </select>
+
+  </div>
+        <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" name="description" id="description"></textarea>
+  </div>
+         <div class="mb-3">
+    <label for="keywords" class="form-label">Keywords</label>
+            <textarea class="form-control" name="keywords" id="keywords"></textarea>
+  </div>
+        <div class="mb-3">
+    <label for="image" class="form-label">Upload image</label>
+    <input type="file" class="form-control" name="image" id="image">
+  </div>
+
+
+
+  <button type="submit" class="btn btn-success">Add Product</button>
+</form>
+
+</div>
+{% endblock %}
